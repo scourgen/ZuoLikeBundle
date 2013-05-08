@@ -33,6 +33,17 @@ class Configuration implements ConfigurationInterface
                         ->end()
                     ->end()
                 ->end()
+
+                ->arrayNode('service')->addDefaultsIfNotSet()
+                    ->children()
+                        ->arrayNode('manager')->addDefaultsIfNotSet()
+                            ->children()
+                                ->scalarNode('like_topic')->cannotBeEmpty()->defaultValue('zuo_like.manager.like_topic.default')->end()
+                                ->scalarNode('liker')->cannotBeEmpty()->defaultValue('zuo_like.manager.liker.default')->end()
+                            ->end()
+                        ->end()
+                    ->end()
+                ->end()
             ->end()
         ->end();
         return $treeBuilder;

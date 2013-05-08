@@ -41,5 +41,9 @@ class ZuoLikeExtension extends Extension
                 $container->setAlias('zuo_like.document_manager', new Alias(sprintf('doctrine.odm.%s_mongodb.document_manager', $config['model_manager_name']), false));
             }
         }
+
+
+        $container->setAlias('zuo_like.manager.like_topic', $config['service']['manager']['like_topic']);
+        $container->setAlias('zuo_like.manager.liker', $config['service']['manager']['liker']);
     }
 }
