@@ -29,7 +29,7 @@ abstract class Liker
         return $this->likeTopic;
     }
 
-    public function setLikeTopic(CommentInterface $likeTopic)
+    public function setLikeTopic($likeTopic)
     {
         $this->likeTopic = $likeTopic;
     }
