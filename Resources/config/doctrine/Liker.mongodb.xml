@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<doctrine-mongo-mapping xmlns="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xsi:schemaLocation="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping
+                        http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping.xsd">
+
+    <mapped-superclass name="Zuo\LikeBundle\Document\Liker" collection="zuo_like_liker" customId="true">
+
+        <field name="id" type="string" id="true" strategy="NONE" />
+
+        <field name="numComments" fieldName="numComments" type="int" />
+
+        <reference-many field="likeTopic" target-document="Zuo\LikeBundle\Document\LikeTopic" />
+
+        <field name="user_id" fieldName="user_id" type="string" />
+
+        <field name="createdAt" fieldName="createdAt" type="date" />
+
+    </mapped-superclass>
+
+</doctrine-mongo-mapping>
