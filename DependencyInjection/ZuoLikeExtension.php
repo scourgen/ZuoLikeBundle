@@ -42,6 +42,8 @@ class ZuoLikeExtension extends Extension
             }
         }
 
+        $container->setParameter('zuo_like.model.like_topic.class', $config['class']['model']['like_topic']);
+        $container->setParameter('zuo_like.model.liker.class', $config['class']['model']['liker']);
 
         $container->setAlias('zuo_like.manager.like_topic', $config['service']['manager']['like_topic']);
         $container->setAlias('zuo_like.manager.liker', $config['service']['manager']['liker']);

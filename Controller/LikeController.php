@@ -10,15 +10,18 @@ class LikeController extends Controller
 {
 
     /**
-     * @Route(name="zuo_like_show_like_button")
+     * @Route("/zuo/like/show_button",name="zuo_like_show_like_button")
      * @Template
      */
     public function showLikeButtonAction()
     {
+        echo 1;
         $key=$this->getRequest()->get('key');
-echo $key;
+
         //if not topic not exist,create one
         $manager = $this->container->get('zuo_like.manager.like_topic');
+
+        ldd($manager);
 
         $topic=$manager->getTopicByKey($key);
 
