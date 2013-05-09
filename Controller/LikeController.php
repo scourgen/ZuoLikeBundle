@@ -23,10 +23,9 @@ class LikeController extends Controller
         //if not topic not exist,create one
         $manager = $this->container->get('zuo_like.manager.like_topic');
 
-        $type = $this->getRequest()->get('type');
         $topic = $manager->get($key);
         if(!$topic){
-            $topic = $manager->createTopic($key, $type);
+            $topic = $manager->createTopic($key);
         }
 
 
@@ -61,6 +60,22 @@ class LikeController extends Controller
             $code = 500;
         }
 
+        return new JsonResponse(array('code'=>$code, 'msg'=>''));
+    }
+
+
+    /**
+     * @Route("/zuo/like/remove",name="zuo_like_like_remove")
+     */
+    public function RemoveLikeAction()
+    {
+        $key = $this->getRequest()->get('key');
+        if(!$key)
+            return array();
+
+        $user = $this->getUser();
+        $ret = $this->container->get('zuo_like.manager.liker')->remove($key, $user);
+        ldd($ret);
         return new JsonResponse(array('code'=>$code, 'msg'=>''));
     }
 }

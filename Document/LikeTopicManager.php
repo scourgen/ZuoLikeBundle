@@ -41,7 +41,7 @@ class LikeTopicManager {
         return $this->repository->get($key);
     }
 
-    public function createTopic($key, $type=0){
+    public function createTopic($key, $type=null){
         return $this->repository->create($key, $type);
     }
 
