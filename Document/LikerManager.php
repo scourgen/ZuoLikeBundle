@@ -2,6 +2,10 @@
 
 namespace Zuo\LikeBundle\Document;
 
+use Doctrine\ODM\MongoDB\DocumentManager;
+
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+
 class LikerManager {
     /**
      * @var DocumentManager
@@ -25,5 +29,21 @@ class LikerManager {
 
         $metadata = $dm->getClassMetadata($class);
         $this->class = $metadata->name;
+
     }
+
+
+    public function get($topic, $user){
+        return $this->repository->get($topic, $user);
+    }
+
+    public function add($key, $user=null){
+        return $this->repository->add($key, $user);
+    }
+
+    public function remove($key, $user=null){
+        return $this->repository->remove($key, $user);
+    }
+
+
 }

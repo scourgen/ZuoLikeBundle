@@ -3,6 +3,7 @@
 namespace Zuo\LikeBundle\Document;
 
 use Doctrine\ODM\MongoDB\DocumentManager;
+
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class LikeTopicManager {
@@ -29,25 +30,19 @@ class LikeTopicManager {
 
         $metadata = $dm->getClassMetadata($class);
         $this->class = $metadata->name;
+
     }
 
     public function isTopicExists($key){
-        if(1==1){
-            return true;
-        }else{
-            return false;
-        }
+        return $this->repository->isExists($key);
     }
 
-    public function getTopicByKey($key){
-        if(1==1){
-            return array();
-        }else{
-            return null;
-        }
+    public function get($key){
+        return $this->repository->get($key);
     }
 
-    public function createTopic($key){
-        return true;
+    public function createTopic($key, $type=null){
+        return $this->repository->create($key, $type);
     }
+
 }

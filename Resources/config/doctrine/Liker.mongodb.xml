@@ -7,7 +7,7 @@
 
     <mapped-superclass name="Zuo\LikeBundle\Document\Liker" collection="zuo_like_liker" customId="true">
 
-        <field name="id" type="string" id="true" strategy="NONE" />
+        <field name="id" id="true" type="string" strategy="NONE" />
 
         <field name="numComments" fieldName="numComments" type="int" />
 
