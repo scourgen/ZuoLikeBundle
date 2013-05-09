@@ -3,6 +3,7 @@ namespace Zuo\LikeBundle\Model;
 
 use DateTime;
 use InvalidArgumentException;
+use \Zuo\LikeBundle\Model\LikeTopic;
 
 abstract class Liker
 {
@@ -29,7 +30,7 @@ abstract class Liker
         return $this->likeTopic;
     }
 
-    public function setLikeTopic($likeTopic)
+    public function setLikeTopic(LikeTopic $likeTopic)
     {
         $this->likeTopic = $likeTopic;
     }

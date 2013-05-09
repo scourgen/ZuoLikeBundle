@@ -5,6 +5,9 @@ use DateTime;
 
 abstract class LikeTopic
 {
+    const TYPE_SAVE_USER = 1;
+    const TYPE_ANONYMOUS = 0;
+
     protected $id;
 
     protected $key;
