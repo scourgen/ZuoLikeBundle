@@ -24,6 +24,10 @@ abstract class LikeTopic
         $this->createdAt = new DateTime();
     }
 
+    public function setId($id){
+        $this->id = $id;
+    }
+
     public function getId()
     {
         return $this->id;
