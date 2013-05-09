@@ -6,7 +6,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Weimi\WebBundle\Document\LikeTopic;
 
 class LikeController extends Controller
 {
@@ -28,13 +27,7 @@ class LikeController extends Controller
             $topic = $manager->createTopic($key);
         }
 
-
-        //if topic exist,fetch it.
-
-        //get the information about the current user liked it or not.
-
-        //get the total count of this topic
-        return array();
+        return array('topic'=>$topic);
     }
 
 
@@ -49,7 +42,7 @@ class LikeController extends Controller
 
         $user = $this->getUser();
         $ret = $this->container->get('zuo_like.manager.liker')->add($key, $user);
-        if($ret instanceof LikeTopic){
+        if(is_object($ret)){
             // succ like
             $code = 200;
         }elseif($ret === true){
@@ -75,7 +68,11 @@ class LikeController extends Controller
 
         $user = $this->getUser();
         $ret = $this->container->get('zuo_like.manager.liker')->remove($key, $user);
-        ldd($ret);
+        if($ret && isset($ret['n']) && $ret['n'] == 1){
+            $code = 200;
+        }else{
+            $code = 500;
+        }
         return new JsonResponse(array('code'=>$code, 'msg'=>''));
     }
 }
