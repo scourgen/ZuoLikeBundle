@@ -33,16 +33,6 @@ abstract class LikeTopic
         return $this->id;
     }
 
-    public function getKey()
-    {
-        return $this->key;
-    }
-
-    public function setKey($key)
-    {
-        $this->key = $key;
-    }
-
     public function getType()
     {
         return $this->type;
