@@ -7,11 +7,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
+/**
+ * @Route("/zuo/like")
+ */
 class LikeController extends Controller
 {
 
     /**
-     * @Route("/zuo/like/show_button/{key}",name="zuo_like_show_like_button")
+     * @Route("/show_button/{key}",name="zuo_like_show_like_button")
      * @Template()
      */
     public function showLikeButtonAction($key)
@@ -32,7 +35,7 @@ class LikeController extends Controller
 
 
     /**
-     * @Route("/zuo/like/add",name="zuo_like_like_add")
+     * @Route("/add",name="zuo_like_like_add")
      */
     public function AddLikeAction()
     {
@@ -58,7 +61,7 @@ class LikeController extends Controller
 
 
     /**
-     * @Route("/zuo/like/remove",name="zuo_like_like_remove")
+     * @Route("/remove",name="zuo_like_like_remove")
      */
     public function RemoveLikeAction()
     {
