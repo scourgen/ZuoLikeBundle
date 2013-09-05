@@ -9,8 +9,6 @@
 
         <field name="id" id="true" type="string" strategy="NONE" />
 
-        <field name="numComments" fieldName="numComments" type="int" />
-
         <reference-many field="likeTopic" target-document="Zuo\LikeBundle\Document\LikeTopic" />
 
         <field name="user_id" fieldName="user_id" type="string" />
